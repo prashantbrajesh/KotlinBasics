@@ -24,6 +24,22 @@ fun main(args: Array<String>) {
     someThing.toString()
     if(someThing is Customer)
         println(someThing.age)
+    val customer3 = someThing as Customer
+    println("customer age is ${customer3.age}") // expression
+    println(customer1)
+
+    val rawString = """ customer age is  ${customer3.age}
+                        *its humbly dumpy
+                        *pall
+    """.trimIndent().trimMargin("*")
+    println(rawString)
+
+    println("""
+            |    1
+            |   11
+            |  111
+            | 1111
+    """.trimMargin())
 }
 
 
@@ -61,5 +77,9 @@ class Customer(var age: Int,val name: String){
         var result = age
         result = 31 * result + name.hashCode()
         return result
+    }
+
+    override fun toString(): String {
+        return "Customer \$name=$name and \$age = $$age"
     }
 }
