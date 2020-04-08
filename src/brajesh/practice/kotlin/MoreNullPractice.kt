@@ -9,6 +9,7 @@ fun main(){
     val str:String? = "This is't null"
     val str4 = str!!.toUpperCase()
     println(str4)
+    str?.toUpperCase()
 
     val str2:String? = null
 
