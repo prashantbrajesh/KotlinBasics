@@ -19,4 +19,7 @@ inline fun <reified T> getElementsOfType(list :List<Any>):List<T>{
         }
     }
     return newList
+
+
+
 }
