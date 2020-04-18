@@ -2,6 +2,8 @@ package brajesh.practice.kotlin.labda
 
 fun main(){
 
+    {2==4}.let { println("its true") }
+
     val carMap = mutableMapOf<Int,Car>( 1 to  Car(color = "red",price = 22),
         3 to  Car(color = "red",price = 21),
         33 to  Car(color = "red",price = 22),
