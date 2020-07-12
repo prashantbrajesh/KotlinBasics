@@ -34,4 +34,40 @@ data class Truck // no-arg constructor, getters and setters
     (override var make: String="", override var model: String="",  var payloadCapacity: Double=0.1) : Vehicle(make!!, model!!)
 
 
+
+// tests
+
+
+package com.udaan.paymentstransfer.models
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import org.junit.Test
+import java.util.*
+
+
+class CarTest{
+
+    @Test
+   fun testFun(){
+        val car = Car("Mercedes-Benz", "S500", 5, 250.0)
+                val truck = Truck("Isuzu", "NQR", 7500.0)
+
+                val vehicles: MutableList<Vehicle> = ArrayList()
+                vehicles.add(car)
+                vehicles.add(truck)
+
+                val serializedFleet = Fleet(vehicles)
+        val mapper = ObjectMapper()
+        val jsonDataString: String = mapper.writeValueAsString(serializedFleet)
+        println(jsonDataString)
+        println(mapper.writeValueAsString(car))
+        println(mapper.writeValueAsString(truck))
+
+        val fleet = mapper.readValue(jsonDataString, Fleet::class.java)
+        println(fleet)
+    }
+}
+
+
+
 data class Fleet ( val vehicles: List<Vehicle>? = null )
